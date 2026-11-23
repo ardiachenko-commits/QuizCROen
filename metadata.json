@@ -1,0 +1,6 @@
+{
+  "name": "Website Conversion Potential Quiz | Netpeak",
+  "description": "Take a quick 3-minute CRO quiz to evaluate your website's conversion growth potential and get actionable UX/UI hypotheses from Netpeak experts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
