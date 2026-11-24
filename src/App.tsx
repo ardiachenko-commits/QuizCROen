@@ -118,8 +118,12 @@ export default function App() {
 
   if (isFinished) {
     return (
-      <main className="min-h-screen flex flex-col items-center py-10 md:py-14 px-4 netpeak-bg-pattern overflow-y-auto selection:bg-[#5aace9]/15">
-        <NetpeakLogo />
+      <main
+        className={`min-h-screen flex flex-col items-center px-4 netpeak-bg-pattern overflow-y-auto selection:bg-[#5aace9]/15 ${
+          showBookingForm ? 'py-10 md:py-14' : 'py-6 md:py-8'
+        }`}
+      >
+        {showBookingForm && <NetpeakLogo />}
         <AnimatePresence mode="wait">
           {showBookingForm ? (
             isBookingSubmitted ? (

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { RotateCcw } from 'lucide-react';
 import type { ResultTier } from '../data/quizData';
+import { NetpeakLogo } from './NetpeakLogo';
 
 interface ResultsScreenProps {
   potential: number;
@@ -25,39 +26,39 @@ export function ResultsScreen({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      className="max-w-4xl w-full px-2 md:px-0 space-y-8 md:space-y-10"
+      className="max-w-4xl w-full px-2 md:px-0 space-y-5 md:space-y-6"
     >
       {/* Main Potential Score Card */}
-      <section className="netpeak-card !px-6 md:!px-10 text-center relative overflow-hidden">
+      <section className="netpeak-card !p-6 md:!p-8 text-center relative overflow-hidden">
         <div
           aria-hidden="true"
           className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#5aace9] to-[#ff4e00]"
         />
 
-        <h1 className="text-lg md:text-2xl font-black text-[#1a1a1a] uppercase tracking-tight mb-8 md:mb-10 mt-2">
+        <h1 className="text-lg md:text-2xl font-black text-[#1a1a1a] uppercase tracking-tight mb-5 md:mb-6 mt-1">
           YOUR CONVERSION GROWTH POTENTIAL
         </h1>
 
-        <div className="flex justify-center mb-8 md:mb-10">
+        <div className="flex justify-center mb-5 md:mb-6">
           <motion.div
             initial={{ scale: 0.65, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            className="w-40 h-40 md:w-52 md:h-52 rounded-full border-[10px] md:border-[12px] border-[#5aace9] flex items-center justify-center bg-white shadow-[0_20px_50px_rgba(90,172,233,0.28)]"
+            className="w-32 h-32 md:w-36 md:h-36 rounded-full border-[9px] md:border-[10px] border-[#5aace9] flex items-center justify-center bg-white shadow-[0_18px_40px_rgba(90,172,233,0.26)]"
           >
-            <span className="text-4xl md:text-6xl font-black text-[#5aace9] tabular-nums">
+            <span className="text-3xl md:text-5xl font-black text-[#5aace9] tabular-nums">
               {potential}%
             </span>
           </motion.div>
         </div>
 
-        <div className="text-left space-y-6 max-w-2xl mx-auto">
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed font-medium">
+        <div className="text-left space-y-4 max-w-2xl mx-auto">
+          <p className="text-sm md:text-[15px] text-slate-600 leading-relaxed font-medium">
             {tier.description}
           </p>
 
-          <div className="p-4 md:p-6 bg-blue-50/70 rounded-2xl border border-blue-100">
-            <p className="font-bold text-[#3f95d6] text-sm md:text-lg leading-snug">
+          <div className="p-4 md:p-5 bg-blue-50/70 rounded-2xl border border-blue-100">
+            <p className="font-bold text-[#3f95d6] text-sm md:text-base leading-snug">
               {tier.highlightedMessage}
             </p>
           </div>
@@ -65,14 +66,14 @@ export function ResultsScreen({
       </section>
 
       {/* Offer Card */}
-      <section className="netpeak-card !px-6 md:!px-10 relative overflow-hidden border border-orange-100">
+      <section className="netpeak-card !p-6 md:!p-7 relative overflow-hidden border border-orange-100">
         <div
           aria-hidden="true"
           className="absolute top-0 left-0 w-full h-1 bg-[#ff4e00]"
         />
 
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-8">
-          <div className="w-20 h-20 bg-[#fff7ed] rounded-2xl flex items-center justify-center shrink-0">
+        <div className="flex flex-col md:flex-row items-center gap-5 md:gap-6 mb-5">
+          <div className="w-16 h-16 md:w-[72px] md:h-[72px] bg-[#fff7ed] rounded-2xl flex items-center justify-center shrink-0">
             <svg
               viewBox="0 0 64 64"
               className="w-11 h-11"
@@ -186,7 +187,7 @@ export function ResultsScreen({
         </div>
       </section>
 
-      <div className="flex justify-center pt-2">
+      <div className="flex flex-col items-center gap-6 pt-2 pb-4">
         <button
           type="button"
           onClick={onRetake}
@@ -195,6 +196,8 @@ export function ResultsScreen({
           <RotateCcw className="w-4 h-4" aria-hidden="true" />
           <span>Retake Quiz</span>
         </button>
+
+        <NetpeakLogo size="sm" />
       </div>
     </motion.div>
   );
